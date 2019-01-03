@@ -26,12 +26,15 @@ export default {
        }
      },
      methods:{
+       
        //  常规发送请求方法
       //  fn(){
+        //  console.log($http)
       //     this.$http
       //     .post('login',this.formData)
       //     .then((res)=>{
       //       console.log(res)
+      //       // console.log($http)
       //     })
       //  }
 
@@ -47,8 +50,11 @@ export default {
           
           if(status===200){
             const token=data.data.token;
-            sessionStorage.setItem('token', token);
-          this.$message.success(msg)
+            localStorage.setItem('token', token);
+          this.$message.success(msg);
+           this.$router.push({
+             name: 'home'
+           })
           }else{
             this.$message.error(msg)
           }
