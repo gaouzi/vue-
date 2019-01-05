@@ -2,12 +2,8 @@
 <!-- import { constants } from 'perf_hooks'; -->
     <el-card class="box-card">
     <!-- 面包屑 -->
-    <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-        <el-breadcrumb-item>用户列表</el-breadcrumb-item>
-    </el-breadcrumb>
-
+  
+     <cus-bread live1="用户管理" live2="用户列表"></cus-bread>
     <!-- 搜索框 -->
     <el-row class="searchArea" >
       <el-col >
@@ -357,7 +353,7 @@ export default {
         // }
         //    })
        const res = await this.$http.get(`users?query=${this.query}&pagenum=${this.pagenum}&pagesize=${this.pagesize}`)
-    //    console.log(res)
+      //  console.log(res)
        const {
         data: {
           data: { total, users },
@@ -370,6 +366,7 @@ export default {
             //  const {data:{users}}=data;
              this.list=users;
              this.total=total
+            //  console.log(this.total)
          }else{
 
          }
